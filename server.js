@@ -9,8 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON
 
+
 // MongoDB Connection
-mongoose.connect("mongodb://localhost:27017/online-coding", {
+// local - "mongodb://localhost:27017/online-coding"
+mongoose.connect("mongodb+srv://edenhotz:edenhotz1997@cluster0.rpc9d.mongodb.net/?retryWrites=true&w=majority&appName=cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
