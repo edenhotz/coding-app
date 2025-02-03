@@ -9,6 +9,9 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
 
 // MongoDB Connection
 // local - "mongodb://localhost:27017/online-coding"
@@ -126,8 +129,9 @@ io.on("connection", (socket) => {
  });
 });
 
-server.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 
