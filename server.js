@@ -48,7 +48,7 @@ initializeCodeBlocks();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://frontend-coding-app.onrender.com/",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
