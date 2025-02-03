@@ -44,10 +44,11 @@ const initializeCodeBlocks = async () => {
 
 initializeCodeBlocks();
 
+// localy - "http://localhost:3000"
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://frontend-coding-app.onrender.com/",
     methods: ["GET", "POST"],
   },
 });
