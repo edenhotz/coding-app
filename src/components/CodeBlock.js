@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
+// Before any third party import that causes issues
+import { passiveSupport } from 'passive-events-support/src/utils';
+
+passiveSupport({
+  events: 'touchstart', // or any other event tyoes
+});
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { useParams, useNavigate } from "react-router-dom";
 import "codemirror/lib/codemirror.css";
