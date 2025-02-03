@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-// Before any third party import that causes issues
-import { passiveSupport } from 'passive-events-support/src/utils';
-
-passiveSupport({
-  events: 'touchstart', // or any other event tyoes
-});
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { useParams, useNavigate } from "react-router-dom";
 import "codemirror/lib/codemirror.css";
@@ -14,6 +8,7 @@ import "codemirror/mode/javascript/javascript";
 import "../styles.css"; // Import CSS file 
 import home from '../images/home.png';
 import readOnly from '../images/readOnly.png';
+import CodeEditor from "./CodeEditor";
 
 // localy - "http://localhost:5000"
 const socket = io("https://coding-app-4.onrender.com");
@@ -82,7 +77,12 @@ const CodeBlockPage = () => {
       {showSmiley && <h1 style={{ fontSize: "100px" }}>😊</h1>}
       {role === "mentor" && (<img src={readOnly} style={{ width: '25px', height: '25px' }} alt="readOnly"/>)}
       <div className="code-editor">
-      <CodeMirror
+      <CodeEditor
+          code={code}
+          handleCodeChange={handleCodeChange}
+          role={role}
+        />
+      {/* <CodeMirror
         value={code}
         options={{
           mode: "javascript",
@@ -91,7 +91,7 @@ const CodeBlockPage = () => {
         }}
         onBeforeChange={handleCodeChange}
         readOnly={role === "student"}
-      />
+      /> */}
       </div>
     </div>
   );
