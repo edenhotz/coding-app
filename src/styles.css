@@ -1,0 +1,145 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Centered Container */
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #282c34;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Header Styling */
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #61dafb;
+  }
+  
+  /* Role & Info */
+  .info {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  /* Smiley Face */
+  .smiley {
+    font-size: 100px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Code Editor Container */
+  .code-editor {
+    border: 2px solid #444;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  /* Buttons */
+  .button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .button-primary {
+    background-color: #61dafb;
+    color: black;
+  }
+  
+  .button-primary:hover {
+    background-color: #4fc3f7;
+  }
+  
+  .button-danger {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .button-danger:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Lobby Page */
+  .lobby-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .lobby-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .lobby-links a {
+    background: #333;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin: 10px 0;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: block;
+  }
+  
+  .lobby-links a:hover {
+    background: #444;
+  }
+
+  /* Home Button */
+.button-home {
+  background-color: #ffffff;
+  color: black;
+  width: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 10px auto;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button-home:hover {
+  background-color: #4fc3f7;
+}
+
+/* Show Hint Button */
+.button-hint {
+  background-color: #ffffff;
+  color: black;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+  width: auto;
+}
+
+.button-hint:hover {
+  background-color: #4fc3f7;
+}
+
+  .react-codemirror2 > .CodeMirror:first-child { display: none; }
