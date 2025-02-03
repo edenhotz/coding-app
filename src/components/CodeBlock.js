@@ -22,6 +22,10 @@ const CodeBlockPage = () => {
   const [hint, setHint] = useState(""); // Store hints
   const [showHint, setShowHint] = useState(false);
 
+  // const handleMentorLeft = useCallback(() => {
+  //   alert("The mentor has left. Redirecting to the lobby...");
+  //   navigate("/");
+  // }, [navigate]);
 
   useEffect(() => {
     socket.emit("join_codeblock", id);
@@ -53,7 +57,7 @@ const CodeBlockPage = () => {
       socket.emit("leave_codeblock", id);
     };
 
-  }, [id, navigate, role]);
+  }, [id]);
 
   const handleCodeChange = (editor, data, value) => {
     if (role === "student") {
