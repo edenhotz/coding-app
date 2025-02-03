@@ -10,7 +10,7 @@ import home from '../images/home.png';
 import readOnly from '../images/readOnly.png';
 
 // localy - "http://localhost:5000"
-const socket = io("https://coding-app-4.onrender.com");
+const socket = io("https://coding-app-4.onrender.com/codeblocks");
 
 const CodeBlockPage = () => {
   const { id } = useParams(); // Get codeblockId from URL

@@ -32,7 +32,7 @@ const codeBlockSchema = new mongoose.Schema({
 
 const CodeBlock = mongoose.model("CodeBlock", codeBlockSchema);
 
-// await CodeBlock.deleteMany({}); // Deletes all existing records
+await CodeBlock.deleteMany({}); // Deletes all existing records
 // Initialize Default Code Blocks (Run Once)
 const initializeCodeBlocks = async () => {
   const count = await CodeBlock.countDocuments();
