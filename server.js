@@ -3,7 +3,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import mongoose from "mongoose";
 import cors from "cors";
-import Blocks from "../src/components/InitializedCodeBlocks.js";
+import Blocks from "./src/components/InitializedCodeBlocks.js";
 
 const app = express();
 app.use(cors());
