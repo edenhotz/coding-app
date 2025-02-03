@@ -53,7 +53,7 @@ const CodeBlockPage = () => {
       socket.emit("leave_codeblock", id);
     };
 
-  }, [id]);
+  }, [id, navigate, role]);
 
   const handleCodeChange = (editor, data, value) => {
     if (role === "student") {
@@ -68,14 +68,14 @@ const CodeBlockPage = () => {
 
   return (
     <div className="container">
-     <img src={home} style={{ width: '40px', height: '40px' }} onClick={redirectToLobby}/> 
+     <img src={home} style={{ width: '40px', height: '40px' }} onClick={redirectToLobby} alt="home"/> 
       <h1>Code Block {id}</h1>
       <p className="info">Your role: {role}</p>
       <p className="info">Number of students in the room: {studentCount}</p>
       <button class="button-hint" onClick={() => setShowHint(!showHint)}>Show Hint</button>
       {showHint && <p>💡 Hint: {hint}</p>}
       {showSmiley && <h1 style={{ fontSize: "100px" }}>😊</h1>}
-      {role === "mentor" && (<img src={readOnly} style={{ width: '25px', height: '25px' }}/>)}
+      {role === "mentor" && (<img src={readOnly} style={{ width: '25px', height: '25px' }} alt="readOnly"/>)}
       <div className="code-editor">
       <CodeMirror
         value={code}
