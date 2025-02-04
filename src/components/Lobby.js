@@ -9,8 +9,8 @@ const Lobby = () => {
   useEffect(() => {
     // Fetch available code blocks from the server
     // localy - "http://localhost:5000/codeblocks"
-    // fetch("https://coding-app-4.onrender.com/codeblocks")
-    fetch("http://localhost:5000/codeblocks")
+     fetch("https://coding-app-4.onrender.com/codeblocks")
+    //fetch("http://localhost:5000/codeblocks")
       .then((res) => res.json())
       .then((data) => setCodeBlocks(data));
   }, []);

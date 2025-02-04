@@ -48,7 +48,7 @@ initializeCodeBlocks();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -93,7 +93,8 @@ io.on("connection", (socket) => {
       { content: newCode },
       { new: true }
     );
-  
+    
+    console.log(newCode)
     console.log(codeBlock)
     // Check if the submitted code matches the solution
     if (codeBlock && codeBlock.solution && newCode.trim() === codeBlock.solution.trim()) {

@@ -1,21 +1,24 @@
+import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
-import { javascript } from "@codemirror/lang-javascript";
-import { oneDark } from "@codemirror/theme-one-dark";
+import {javascript} from "@codemirror/lang-javascript";
+import {oneDark} from "@codemirror/theme-one-dark";
 
-function CodeEditor({ code, setCode }) {
+
+function CodeEditor({ code, setCode, role }) {
   return (
     <CodeMirror
       value={code}
-      extensions={[javascript()]}
-      theme={oneDark}
-      onChange={(value) => setCode(value)}
+      extensions={[javascript()]} // This sets JavaScript as the syntax language
+      theme={oneDark} // This applies the oneDark theme
+      onChange={(value) => setCode(value)} // This updates the code in the parent component
+      editable={role === "student"}   
     />
   );
 }
 
 export default CodeEditor;
 
-
+// first
 // import React, { useEffect, useState } from "react";
 // import { EditorView, basicSetup } from "@codemirror/basic-setup";
 // import { EditorState } from "@codemirror/state";

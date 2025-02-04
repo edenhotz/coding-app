@@ -5,14 +5,17 @@ import { useParams, useNavigate } from "react-router-dom";
 // import "codemirror/lib/codemirror.css";
 // import "codemirror/theme/material.css";
 // import "codemirror/mode/javascript/javascript";
+import CodeMirror from "@uiw/react-codemirror";
+import {javascript} from "@codemirror/lang-javascript";
+import {oneDark} from "@codemirror/theme-one-dark";
 import "../styles.css"; // Import CSS file 
 import home from '../images/home.png';
 import readOnly from '../images/readOnly.png';
-import CodeEditor from "./CodeEditor";
+// import CodeEditor from "./CodeEditor";
 
 // localy - "http://localhost:5000"
-// const socket = io("https://coding-app-4.onrender.com");
-const socket = io("http://localhost:5000");
+ const socket = io("https://coding-app-4.onrender.com");
+//const socket = io("http://localhost:5000");
 
 
 const CodeBlockPage = () => {
@@ -57,7 +60,7 @@ const CodeBlockPage = () => {
 
   }, [id]);
 
-  const handleCodeChange = (editor, data, value) => {
+  const handleCodeChange = (value) => {
     if (role === "student") {
       setCode(value);
       socket.emit("code_update", { codeblockId: id, newCode: value });
@@ -74,16 +77,23 @@ const CodeBlockPage = () => {
       <h1>Code Block {id}</h1>
       <p className="info">Your role: {role}</p>
       <p className="info">Number of students in the room: {studentCount}</p>
-      <button class="button-hint" onClick={() => setShowHint(!showHint)}>Show Hint</button>
+      <button className="button-hint" onClick={() => setShowHint(!showHint)}>Show Hint</button>
       {showHint && <p>💡 Hint: {hint}</p>}
       {showSmiley && <h1 style={{ fontSize: "100px" }}>😊</h1>}
       {role === "mentor" && (<img src={readOnly} style={{ width: '25px', height: '25px' }} alt="readOnly"/>)}
       <div className="code-editor">
-      <CodeEditor
+      <CodeMirror
+      value={code}
+      extensions={[javascript()]} // This sets JavaScript as the syntax language
+      theme={oneDark} // This applies the oneDark theme
+      onChange={(code) => handleCodeChange(code)} // This updates the code in the parent component
+      editable={role === "student"}   
+    />
+      {/* <CodeEditor
           code={code}
           handleCodeChange={handleCodeChange}
           role={role}
-        />
+        /> */}
       {/* <CodeMirror
         value={code}
         options={{
