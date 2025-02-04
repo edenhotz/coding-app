@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-import { Controlled as CodeMirror } from "react-codemirror2";
+// import { Controlled as CodeMirror } from "react-codemirror2";
 import { useParams, useNavigate } from "react-router-dom";
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
-import "codemirror/mode/javascript/javascript";
+// import "codemirror/lib/codemirror.css";
+// import "codemirror/theme/material.css";
+// import "codemirror/mode/javascript/javascript";
 import "../styles.css"; // Import CSS file 
 import home from '../images/home.png';
 import readOnly from '../images/readOnly.png';
 import CodeEditor from "./CodeEditor";
 
 // localy - "http://localhost:5000"
-const socket = io("https://coding-app-4.onrender.com");
+// const socket = io("https://coding-app-4.onrender.com");
+const socket = io("http://localhost:5000");
+
 
 const CodeBlockPage = () => {
   const { id } = useParams(); // Get codeblockId from URL
