@@ -9,7 +9,9 @@ import home from '../images/home.png';
 import readOnly from '../images/readOnly.png';
 
 // localy - "http://localhost:5000"
- const socket = io("https://coding-app-4.onrender.com");
+// const socket = io("http://localhost:5000");
+const socket = io("https://coding-app-4.onrender.com");
+
 
 const CodeBlockPage = () => {
   const { id } = useParams(); // Get codeblockId from URL
@@ -47,6 +49,7 @@ const CodeBlockPage = () => {
       navigate("/"); // Redirect to lobby
     });
 
+
     return () => {
       socket.emit("leave_codeblock", id);
     };
@@ -61,7 +64,7 @@ const CodeBlockPage = () => {
   };
 
   const redirectToLobby = () => {
-    navigate("/");  // Redirect to the lobby page
+    socket.emit("redirect_home");
   };
 
   return (
