@@ -64,7 +64,7 @@ const CodeBlockPage = () => {
   };
 
   const redirectToLobby = () => {
-    socket.emit("redirect_home");
+    navigate("/");
   };
 
   return (

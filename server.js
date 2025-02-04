@@ -110,23 +110,6 @@ io.on("connection", (socket) => {
       io.to(codeblockId).emit("update_user_data", { mentor: mentors[codeblockId], studentCount });
     });
 
-      socket.on("redirect_home", async () => {
-        for (const [codeblockId, mentorId] of Object.entries(mentors)) {
-          if (mentorId === socket.id) {
-            console.log(`Mentor left code block ${codeblockId}`);
-    
-            // Reset code in database
-            await CodeBlock.findOneAndUpdate({ id: codeblockId }, { content: "// Code Reset" });
-    
-            // Notify students & redirect them
-            io.to(codeblockId).emit("mentor_left");
-    
-            // Remove mentor tracking
-            delete mentors[codeblockId];
-          }
-        }
-      });
-
   socket.on("disconnect", async () => {
     console.log(`User Disconnected: ${socket.id}`);
     for (const [codeblockId, mentorId] of Object.entries(mentors)) {
