@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles.css"; // Import CSS file
+import "../styles.css";
 
 
 const Lobby = () => {
@@ -10,7 +10,6 @@ const Lobby = () => {
     // Fetch available code blocks from the server
     // localy - "http://localhost:5000/codeblocks"
      fetch("https://coding-app-4.onrender.com/codeblocks")
-    //fetch("http://localhost:5000/codeblocks")
       .then((res) => res.json())
       .then((data) => setCodeBlocks(data));
   }, []);
@@ -30,31 +29,3 @@ const Lobby = () => {
 };
 
 export default Lobby;
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const codeBlocks = [
-//   { id: '1', name: 'Async case' },
-//   { id: '2', name: 'Closure case' },
-//   { id: '3', name: 'Promises case' },
-//   { id: '4', name: 'Scope case' }
-// ];
-
-// function Lobby() {
-//   return (
-//     <div>
-//       <h1>Choose code block</h1>
-//       <ul>
-//         {codeBlocks.map((block) => (
-//           <li key={block.id}>
-//             <Link to={`/codeblock/${block.id}`}>{block.name}</Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default Lobby;

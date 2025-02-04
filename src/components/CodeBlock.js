@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-// import { Controlled as CodeMirror } from "react-codemirror2";
 import { useParams, useNavigate } from "react-router-dom";
-// import "codemirror/lib/codemirror.css";
-// import "codemirror/theme/material.css";
-// import "codemirror/mode/javascript/javascript";
 import CodeMirror from "@uiw/react-codemirror";
 import {javascript} from "@codemirror/lang-javascript";
 import {oneDark} from "@codemirror/theme-one-dark";
-import "../styles.css"; // Import CSS file 
+import "../styles.css"; 
 import home from '../images/home.png';
 import readOnly from '../images/readOnly.png';
-// import CodeEditor from "./CodeEditor";
 
 // localy - "http://localhost:5000"
  const socket = io("https://coding-app-4.onrender.com");
-//const socket = io("http://localhost:5000");
-
 
 const CodeBlockPage = () => {
   const { id } = useParams(); // Get codeblockId from URL
@@ -84,90 +77,14 @@ const CodeBlockPage = () => {
       <div className="code-editor">
       <CodeMirror
       value={code}
-      extensions={[javascript()]} // This sets JavaScript as the syntax language
-      theme={oneDark} // This applies the oneDark theme
-      onChange={(code) => handleCodeChange(code)} // This updates the code in the parent component
+      extensions={[javascript()]} 
+      theme={oneDark} 
+      onChange={(code) => handleCodeChange(code)} 
       editable={role === "student"}   
     />
-      {/* <CodeEditor
-          code={code}
-          handleCodeChange={handleCodeChange}
-          role={role}
-        /> */}
-      {/* <CodeMirror
-        value={code}
-        options={{
-          mode: "javascript",
-          theme: "material",
-          lineNumbers: true,
-        }}
-        onBeforeChange={handleCodeChange}
-        readOnly={role === "student"}
-      /> */}
       </div>
     </div>
   );
 };
 
 export default CodeBlockPage;
-
-
-// first
-// import React, { useState, useEffect } from 'react';
-// import io from 'socket.io-client';
-// import { Controlled as CodeMirror } from 'react-codemirror2';
-// import 'codemirror/lib/codemirror.css'; // Core styles
-// import 'codemirror/theme/material.css'; // Theme styles
-// import 'codemirror/mode/javascript/javascript';
-
-//   // Connect to the WebSocket server
-//   const socket = io('http://localhost:5000'); // Your WebSocket server URL
-
-// const CodeBlockPage = () => {
-//   const [studentCount, setStudentCount] = useState(0);
-//   const [role, setRole] = useState('student'); // Assume default role is 'student'
-//   const [code, setCode] = useState('');
-//   const [solution, setSolution] = useState(''); // Set the solution for each code block
-
-//   useEffect(() => {
-
-//     // Listen for the student count update
-//     socket.on('update_user_data', ({mentor, studentCount}) => {
-//       setStudentCount(studentCount); // Update the state with the new student count
-//     });
-
-//     socket.on('code_update', (newCode) => {
-//       if (role === 'student') {
-//           setCode(newCode);
-//       }
-//   });
-
-//   }, []);
-
-//   const handleCodeChange = (editor, data, value) => {
-//     if (role === 'student') {
-//         setCode(value);
-//         //socket.emit('codeChange', id, value); // Send the code change with the code block ID
-//     }
-// };
-
-//   return (
-//     <div>
-//       <h1>Code Block</h1>
-//       <p>Your role: {role}</p>
-//       <p>Number of students in the room: {studentCount}</p>
-//       <CodeMirror
-//                 value={code}
-//                 options={{
-//                     mode: 'javascript',
-//                     theme: 'material',
-//                     lineNumbers: true,
-//                 }}
-//                 onBeforeChange={handleCodeChange}
-//                 readOnly={role === 'mentor'}
-//             />
-//     </div>
-//   );
-// };
-
-// export default CodeBlockPage;
